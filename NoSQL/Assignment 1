@@ -1,0 +1,19 @@
+# Install redis server and client
+    sudo apt-add-repository ppa:chris-lea/redis-server
+    sudo apt-get update
+    sudo apt-get install redis-server redis-tools
+* Go to redis documentation
+* Install redis and redis-cli using the above apt-get commands
+
+# Tasks
+
+* Create a redis list with value [10, 20, 30]
+* Change the list to [20, 20, 20]
+* Create a sorted set with the value {1, 2, 3 }
+* Add  {3, 4, -5} to this set
+* Display the list contents and the ordered set contents
+
+# Submission
+
+* Write the commands you typed in to redis-cli to achieve this.
+
