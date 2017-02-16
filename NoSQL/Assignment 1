@@ -16,4 +16,15 @@
 # Submission
 
 * Write the commands you typed in to redis-cli to achieve this.
+zadd myset 1 1
+zadd myset 2 2
+zadd myset 3 3
+zrange myset 0 -1
+zrange myset 0 -1 withscores
+
+sadd myset2 3
+sadd myset2 4
+Sadd myset2 3-5
+
+
 
