@@ -1,0 +1,112 @@
+Student Name: Abhijit Khuperkar
+Student ID: 10150121
+Student Email ID: abhijit.bdapm10150121@spjain.org
+Student GitHub Repo: https://github.com/akhuperkar
+-------------------------------------------------------------
+# Install redis server and client
+    sudo apt-add-repository ppa:chris-lea/redis-server
+    sudo apt-get update
+    sudo apt-get install redis-server redis-tools
+* Go to redis documentation
+* Install redis and redis-cli using the above apt-get commands
+--------------------------------------------------------------
+
+# Assignment Tasks
+------------------
+Q1. Create a redis list with value [10, 20, 30]
+
+redis 127.0.0.1:6379> lpush mylist 10 20 30
+(integer) 3
+
+Q2. Change the list to [20, 20, 20]
+
+redis 127.0.0.1:6379> lpop mylist
+"30"
+
+redis 127.0.0.1:6379> lpush mylist 20
+(integer) 3
+
+redis 127.0.0.1:6379> lrange mylist 0 -1
+1) "20"
+2) "20"
+3) "10"
+
+redis 127.0.0.1:6379> rpop mylist
+"10"
+
+redis 127.0.0.1:6379> rpush mylist 20
+(integer) 3
+
+redis 127.0.0.1:6379> lrange mylist 0 -1
+1) "20"
+2) "20"
+3) "20"
+
+Q3. Create a sorted set with the value {1, 2, 3}
+
+redis 127.0.0.1:6379> zadd myset 1 "one" 2 "two" 3 "three"
+(integer) 3
+
+redis 127.0.0.1:6379> zrange myset 0 -1 withscores
+1) "one"
+2) "1"
+3) "two"
+4) "2"
+5) "three"
+6) "3"
+
+Q4. Add  {3, 4, -5} to this set
+
+redis 127.0.0.1:6379> zadd myset 3 "tri" 4 "four" -5 "mfive"
+(integer) 3
+
+redis 127.0.0.1:6379> zrange myset 0 -1 withscores
+ 1) "mfive"
+ 2) "-5"
+ 3) "one"
+ 4) "1"
+ 5) "two"
+ 6) "2"
+ 7) "three"
+ 8) "3"
+ 9) "tri"
+10) "3"
+11) "four"
+12) "4"
+
+Q5. Display the list contents and the ordered set contents
+
+redis 127.0.0.1:6379> lrange mylist 0 -1
+1) "20"
+2) "20"
+3) "20"
+
+redis 127.0.0.1:6379> zrange myset 0 -1 withscores
+ 1) "mfive"
+ 2) "-5"
+ 3) "one"
+ 4) "1"
+ 5) "two"
+ 6) "2"
+ 7) "three"
+ 8) "3"
+ 9) "tri"
+10) "3"
+11) "four"
+12) "4"
+
+# Submission
+------------
+Q6. Write the commands you typed in to redis-cli to achieve this.
+
+redis 127.0.0.1:6379> lpush mylist 10 20 30
+redis 127.0.0.1:6379> lpop mylist
+redis 127.0.0.1:6379> lpush mylist 20
+redis 127.0.0.1:6379> lrange mylist 0 -1
+redis 127.0.0.1:6379> rpop mylist
+redis 127.0.0.1:6379> rpush mylist 20
+redis 127.0.0.1:6379> lrange mylist 0 -1
+redis 127.0.0.1:6379> zadd myset 1 "one" 2 "two" 3 "three"
+redis 127.0.0.1:6379> zrange myset 0 -1 withscores
+redis 127.0.0.1:6379> zadd myset 3 "tri" 4 "four" -5 "mfive"
+redis 127.0.0.1:6379> zrange myset 0 -1 withscores
